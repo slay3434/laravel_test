@@ -70,7 +70,9 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                       
                     @else
+                        <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
@@ -82,15 +84,41 @@
                     Laravel
                 </div>
 
-                <div class="links">
+<!--                <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div>-->
+
+  <div class="links">
+                @foreach ($links as $link)
+                    <a href="{{ $link->url }}">{{ $link->title }}</a>
+                @endforeach
+            </div>
+
             </div>
         </div>
     </body>
 </html>
+
+<?php
+function getConn($db)
+{
+	$uid = "sa";
+	$pwd = "haslo2";
+	//$uid = "test";
+	//$pwd = "test";
+	$connectionInfo = array("UID" => $uid, "PWD" => $pwd, "Database"=>$db);
+	$serverName = "127.0.0.1\mojsql";
+	//$serverName = "uks-v-21-400\sqlexpress";
+	
+	
+	return sqlsrv_connect( $serverName, $connectionInfo);
+}
+//phpinfo();
+ $z = getConn("laravel");
+
+?>
