@@ -8,6 +8,13 @@ class Link extends Model
 {
     //
     
+     protected $fillable = [
+        'title',
+        'url',
+        'description'
+    ];
+    
+    
     public function wasl(){
         $a = "http://wp.pl";
         $b = "def";
@@ -21,12 +28,12 @@ class Link extends Model
         $ln->updated_at ='2018-01-01';
         //$ln->description='sdf';
         
-        //$links = array();  
+     
              $links= json_decode(Link::all());
              
-        $users = \DB::table('links')->find(2);
-                //\DB::select('select top 1 * from links');
-        echo json_encode($users);
+        //$users = \DB::table('links')->find(2);
+        //\DB::select('select top 1 * from links');
+        //echo json_encode($users);
  
             // echo $links;
         array_push($links,$ln,
