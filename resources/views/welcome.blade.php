@@ -74,6 +74,7 @@
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                         <a href="{{ url('/submit') }}">Submit</a>
+                        <a href="{{ url('testgrid') }}">TestGrid</a>
 
                     @endauth
                 </div>
@@ -119,6 +120,6 @@ function getConn($db)
 	return sqlsrv_connect( $serverName, $connectionInfo);
 }
 //phpinfo();
- $z = getConn("laravel");
+ //$z = getConn("laravel");
 
 ?>

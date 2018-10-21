@@ -50,4 +50,8 @@ class Link extends Model
         
         //return Link::all();
     }
+    
+    public static function gridData(){
+        return Link::all();
+    }
 }

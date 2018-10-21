@@ -40,3 +40,13 @@ Route::post('/submit', function (Request $request) {
 
     return redirect('/');
 });
+
+Route::get('testgrid', function () {
+    return view('testGrida');
+});
+
+
+Route::get('/loadGrid', function () {
+    
+    return  \App\Link::gridData();
+});
