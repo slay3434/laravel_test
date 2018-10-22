@@ -37,10 +37,7 @@ class Jqwidgetshelper {
 		$tmpfilteroperator = "";
 		$valuesPrep = "";
 		$values = [];
-		for ($i = 0; $i < $filterscount; $i++)
-			{
-                   
-                     \App\Jqwidgetshelper::writeDataToFile($request->{'filtervalue'.$i});
+		for ($i = 0; $i < $filterscount; $i++){                                        
 			// get the filter's value.
                         $filtervalue = $request->{'filtervalue'.$i};
 			// get the filter's condition.
