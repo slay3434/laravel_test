@@ -53,11 +53,20 @@ class Link extends Model
     }
     
     public static function gridData(Request $request){
+           
+        
+        $condition = " where 1=1 ".\App\Jqwidgetshelper::prepareCondition($request);
+        
+        $query = 'select * from links '.$condition;
      
+      
+        
         if($request->sortorder!=null){
-             return  \DB::select('select * from links order by '.$request->sortdatafield.' '.$request->sortorder);
+             $query= $query.' order by '.$request->sortdatafield.' '.$request->sortorder;
         }
   
-        return Link::all();
+        return \DB::select($query);
+                
+        //return Link::all();
     }
 }
