@@ -46,7 +46,8 @@ Route::get('testgrid', function () {
 });
 
 
-Route::get('/loadGrid', function () {
-    
-    return  \App\Link::gridData();
+Route::get('/loadGrid', function (Request $request) {
+    //echo $request;
+    //echo "dfdf";
+    return  \App\Link::gridData($request);
 });

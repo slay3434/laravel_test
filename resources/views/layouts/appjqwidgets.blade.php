@@ -16,10 +16,14 @@
     <script type="text/javascript"  src="{{ asset('js/jqwidgets/jqxbuttons.js') }}" ></script>
     <script type="text/javascript"  src="{{ asset('js/jqwidgets/jqxscrollbar.js') }}" ></script>
     <script type="text/javascript"  src="{{ asset('js/jqwidgets/jqxmenu.js') }}" ></script>
-    <script type="text/javascript"  src="{{ asset('js/jqwidgets/jqxdata.js') }}"></script>
-    
+  
+     
       <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.js') }}" ></script>
+         <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.sort.js') }}" ></script>
        <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.selection.js') }}" ></script>
+         <script type="text/javascript"  src="{{ asset('js/jqwidgets/jqxdata.js') }}"></script>
+         
+         
     <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     
   

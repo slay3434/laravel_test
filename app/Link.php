@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Link extends Model
 {
@@ -51,7 +52,12 @@ class Link extends Model
         //return Link::all();
     }
     
-    public static function gridData(){
+    public static function gridData(Request $request){
+     
+        if($request->sortorder!=null){
+             return  \DB::select('select * from links order by '.$request->sortdatafield.' '.$request->sortorder);
+        }
+  
         return Link::all();
     }
 }

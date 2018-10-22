@@ -4,18 +4,23 @@
 @section('content')
 
 <script type='text/javascript'>
-       console.log("dfdf");
+      // console.log("dfdf");
         $(document).ready(function () {
         // prepare the data
         var source ={
             datatype: "json",
             datafields: [{ name: 'id' },{ name: 'url' },{ name: 'description' },{ name: 'Address' },{ name: 'City' },],
-            url: '{{ url("/loadGrid") }}'
+            url: '{{ url("/loadGrid") }}',
+            sort: function () {        
+              $("#jqxgrid").jqxGrid('updatebounddata', 'sort');
+            }
         };
         $("#jqxgrid").jqxGrid({       
             source: source,
             width:'100%',
             theme: 'classic',
+            sortable: true,
+            sorttogglestates: 1,
             columns: [{ text: 'Company Name', datafield: 'id', width: 250 },{ text: 'ContactName', datafield: 'url', width: 150 },{ text: 'Contact Title', datafield: 'description', width: 180 },{ text: 'Address', datafield: 'Address', width: 200 },{ text: 'City', datafield: 'City' }]
         });
         });
