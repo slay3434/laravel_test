@@ -25,6 +25,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        
+         Gate::define('admin-only', function ($user) {    
+            if($user->name == 'cfyl@wp.pl')
+            {                
+                return true;
+            }
+            return false;
+        });
         //
     }
 }

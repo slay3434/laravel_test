@@ -46,10 +46,21 @@ Route::post('/submit', function (Request $request) {
 });
 
 Route::get('testgrid', function () {
+      //if (Gate::allows('admin-only')) {
     return view('testGrida');
+//    }else{
+//           //return view('notauthorized');
+//           return view('notauthorized');
+//    }
 });
 
 
 Route::get('/loadGrid', function (Request $request) {
+    if (Gate::allows('admin-only')) {
     return  \App\Link::gridData($request);
+    }
+    else{
+        return null;
+    } 
+        
 });
