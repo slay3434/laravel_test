@@ -10,6 +10,17 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
+        
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        
+        
         <!-- Styles -->
         <style>
             html, body {
@@ -93,16 +104,18 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>-->
 
-  <div class="links">
+            <div class="links  jumbotron">
                 @foreach ($links as $link)
                     <a href="{{ $link->url }}">{{ $link->title }}</a>
                 @endforeach
                 
-                <div>
-                    @foreach ($tests as $test)
-                        <label>"{{ $test->id }}" - {{ $test->nazwa }}</label>
-                    @endforeach
-                </div>
+               
+            </div>
+
+            <div class="row">
+                   @foreach ($tests as $test)
+                   <div class="col"><label>"{{ $test->id }}" - {{ $test->nazwa }}</label></div>
+                   @endforeach
             </div>
 
             </div>
