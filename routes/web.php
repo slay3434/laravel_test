@@ -17,9 +17,13 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     //$links = \App\Link::all();
     $links = (new \App\Link)->wasl();
+    
+    $test = \App\Test::all(); 
    
-    return view('welcome'    , ['links' => $links] );
+    return view('welcome'    , ['links' => $links, 'tests' => $test ] );
 });
+
+
 
 Auth::routes();
 
@@ -47,7 +51,5 @@ Route::get('testgrid', function () {
 
 
 Route::get('/loadGrid', function (Request $request) {
-    //echo $request;
-    //echo "dfdf";
     return  \App\Link::gridData($request);
 });

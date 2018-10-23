@@ -29,8 +29,9 @@ class Link extends Model
         $ln->updated_at ='2018-01-01';
         //$ln->description='sdf';
         
-     
-             $links= json_decode(Link::all()->take(10));
+     //$links = new Link();
+             //$links= json_decode(Link::all()->take(10));
+        $links= json_decode(Link::orderBy('id', 'desc')->take(10)->get());
              
         //$users = \DB::table('links')->find(2);
         //\DB::select('select top 1 * from links');

@@ -97,6 +97,12 @@
                 @foreach ($links as $link)
                     <a href="{{ $link->url }}">{{ $link->title }}</a>
                 @endforeach
+                
+                <div>
+                    @foreach ($tests as $test)
+                        <label>"{{ $test->id }}" - {{ $test->nazwa }}</label>
+                    @endforeach
+                </div>
             </div>
 
             </div>
