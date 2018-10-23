@@ -30,7 +30,7 @@ class Link extends Model
         //$ln->description='sdf';
         
      
-             $links= json_decode(Link::all());
+             $links= json_decode(Link::all()->take(10));
              
         //$users = \DB::table('links')->find(2);
         //\DB::select('select top 1 * from links');
@@ -57,15 +57,38 @@ class Link extends Model
         
         $condition = " where 1=1 ".\App\Jqwidgetshelper::prepareCondition($request);
         
-        $query = 'select * from links '.$condition;
-     
-      
+        $sortfield = 'id';
+        $sortorder = 'asc';
         
-        if($request->sortorder!=null){
-             $query= $query.' order by '.$request->sortdatafield.' '.$request->sortorder;
+        $start = ($request->pagenum) * $request->pagesize;
+        $stop = $start+$request->pagesize;
+        
+          if($request->sortorder!=null){
+            // $query= $query.' order by '.$request->sortdatafield.' '.$request->sortorder;
+              $sortfield = $request->sortdatafield;
+              $sortorder = $request->sortorder;
         }
+                        
+        
+        $query = 'select id, created_at, updated_at, title, url, description from ('
+                . 'select * from'
+                . '(select *, row_number() over(order by '.$sortfield.' '.$sortorder.') as row from links '.$condition.')  '
+                . 'as q1 where row between '.$start.' and '.$stop.') as q2';
+                
+     
+        $rowcount =  \DB::select('select count(1) as rows from links '.$condition);
+
+        
+        $data[]=array(
+            'TotalRows' =>$rowcount[0]->rows,
+            'Rows'=>\DB::select($query)
+        );
+        
+        return $data;
+        
+      
   
-        return \DB::select($query);
+        //return \DB::select($query);
                 
         //return Link::all();
     }
