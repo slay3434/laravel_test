@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-     <script src="{{ asset('js/app.js') }}" ></script>>
+     <script src="{{ asset('js/app.js') }}" ></script>
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/helper.js') }}" ></script>
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jquery-1.11.1.min.js') }}" ></script>
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxcore.js') }}" ></script>
