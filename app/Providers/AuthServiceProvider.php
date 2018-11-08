@@ -27,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         
          Gate::define('admin-only', function ($user) {    
+             
             if($user->name == 'cfyl@wp.pl')
             {                
                 return true;
@@ -36,7 +37,9 @@ class AuthServiceProvider extends ServiceProvider
         //
         
         Gate::define('loggedIn', function ($user){
-            if($user == \Auth::user())
+           return true;
+            //\App\Jqwidgetshelper::writeDataToFile("sdfsdfg");
+            if($user === \Auth::user())
             {
                    return true;
             }

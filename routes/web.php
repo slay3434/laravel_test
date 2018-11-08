@@ -58,9 +58,13 @@ Route::get('testgrid', function () {
 Route::get('/loadGrid', function (Request $request) {
     //if (Gate::allows('admin-only')) {
     return  \App\Link::gridData($request);
-//    }
-//    else{
-//        return null;
-//    } 
+  //  }
+   // else{
+  //      return null;
+  //  } 
         
 });
+
+//Route::resource('__ldajGrida', 'ObslugaGrida');
+
+Route::get('loaddata','ObslugaGrida@dajGrida')->name('obslugagrida');

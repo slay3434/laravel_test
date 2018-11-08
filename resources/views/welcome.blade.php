@@ -86,7 +86,14 @@
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>                                            
                     @endauth
-                    <a href="{{ url('testgrid') }}">TestGrid</a>
+                    
+                    <!--
+                    strona z gridem za pomoca routa zdefiniowanego w pliku web
+                    <a href="{{ url('testgrid') }}">Demo grida</a>
+                    
+                      -->
+                      <a href="{{ route('obslugagrida') }}">Demo grida</a>
+               <!--//action('ObslugaGrida@dajGrida')-->
                 </div>
             @endif
 
