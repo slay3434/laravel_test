@@ -15,12 +15,20 @@ use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
-    //$links = \App\Link::all();
-    $links = (new \App\Link)->wasl();
-    
-    $test = \App\Test::all(); 
-   
-    return view('welcome'    , ['links' => $links, 'tests' => $test ] );
+    //$links = \App\Link::all();       
+    //$test = \App\Test::all(); 
+    //$test=['id'=>'a', 'nazwa'=>'b'];   
+    //return view('welcome'    , ['links' => $links, 'tests' => $test ] );
+
+     
+     if(Auth::guest()){
+        return view('/auth/login');
+     }
+     else{
+        $links = (new \App\Link)->wasl();
+        return view('welcome'    , ['links' => $links ] );
+     }
+
 });
 
 
@@ -46,12 +54,12 @@ Route::post('/submit', function (Request $request) {
 });
 
 Route::get('testgrid', function () {
-    if (Gate::allows('loggedIn')) {
+//    if (Gate::allows('loggedIn')) {
         return view('testGrida');
-    }else{
-           //return view('notauthorized');
-           return view('notauthorized');
-    }
+//    }else{
+//           //return view('notauthorized');
+//           return view('notauthorized');
+//    }
 });
 
 

@@ -9,7 +9,9 @@
         // prepare the data
         var source ={
             datatype: "json",
-            datafields: [{ name: 'id' },{ name: 'url' },{ name: 'description', type: 'string' }],
+            datafields: [{ name: 'id' },
+                { name: 'nazwa' },
+                { name: 'lok_us', type: 'string' }],
             url: '{{ url("/loadGrid") }}',
             root: 'Rows',
             beforeprocessing: function (data) {
@@ -41,8 +43,16 @@
             rendergridrows: function (params) {
                 return params.data;
             },
-            columns: [{ text: 'ID', datafield: 'id', width: 250 },{ text: 'Adres url', datafield: 'url', width: 250 },{ text: 'Opis', datafield: 'description' }]
+            //columns: [{ text: 'ID', datafield: 'id', width: 250 },{ text: 'Adres url', datafield: 'url', width: 250 },{ text: 'Opis', datafield: 'description' }]
+            //select s.id, s.nr_inw, s.lok_us, s.nazwa, s.opis, s.data_lik, s.nazwadns, s.adr_ip,
+            // s.zestaw, s.num_fabr, s.id_gr, s.inwold, s.status, s.nr_pom, s.nr_etyk, s.notatka,
+            //  s.data_zak, s.lok_out, s.stat_przek
+            columns: [ { text: 'ID', datafield: 'id', width: 250 },               
+                {text:'US', datafield:'lok_us', width: 250 },
+                {text:'Nazwa', datafield:'nazwa'}
+            ]
         });
+        
         
         
         

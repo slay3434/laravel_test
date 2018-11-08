@@ -15,6 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+      protected $table = "cfyl_users";
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -27,4 +28,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+//    protected $test='jakis wpisss';
+//    protected $appends=['test'];
+//
+//
+//    public function getFieldAttribute()
+//    {
+//        return $this->test;
+//    }
+//    
+//     public function getSetAttribute($val)
+//    {
+//        $this->test=$val;
+//    }
 }
