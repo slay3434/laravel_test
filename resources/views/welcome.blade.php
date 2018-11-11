@@ -19,6 +19,8 @@
 
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         
         
         <!-- Styles -->
@@ -92,8 +94,8 @@
                     <a href="{{ url('testgrid') }}">Demo grida</a>
                     
                       -->
-                      <a href="{{ route('obslugagrida') }}">Demo grida</a>
-               <!--//action('ObslugaGrida@dajGrida')-->
+                      <a href="{{ route('obslugagrida') }}">Demo grida</a>                   
+               {{--action('ObslugaGrida@dajGrida')--}}
                 </div>
             @endif
 
@@ -119,9 +121,11 @@
                
             </div>
 
+
+<label>kolory</label>
             <div class="row">
-                   @foreach ($tests as $test)
-                   <div class="col"><label>"{{ $test->id }}" - {{ $test->nazwa }}</label></div>
+                   @foreach ($colors as $color)                
+                   <div class="col" style="background-color: {{$color->name}}"><label>"{{ $color->id }}" - {{ $color->name}}</label></div>
                    @endforeach
             </div>
 

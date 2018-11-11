@@ -18,9 +18,14 @@ Route::get('/', function () {
     //$links = \App\Link::all();
     $links = (new \App\Link)->wasl();
     
-    $test = \App\Test::all(); 
+    $colors=array();
+    try{
+    $colors= Auth::user()->colors;
+    } catch (Exception $ex){}
+    
+
    
-    return view('welcome'    , ['links' => $links, 'tests' => $test ] );
+    return view('welcome'    , ['links' => $links],['colors'=>$colors]);
 });
 
 
@@ -30,7 +35,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/submit', function () {
-    return view('submit');
+    if (Gate::allows('loggedIn')) {
+        return view('submit');
+    }else{
+        return view('notauthorized');
+    }
 });
 
 Route::post('/submit', function (Request $request) {
@@ -46,12 +55,12 @@ Route::post('/submit', function (Request $request) {
 });
 
 Route::get('testgrid', function () {
-    if (Gate::allows('loggedIn')) {
+   // if (Gate::allows('loggedIn')) {
         return view('testGrida');
-    }else{
-           //return view('notauthorized');
-           return view('notauthorized');
-    }
+//    }else{
+//           //return view('notauthorized');
+//           return view('notauthorized');
+//    }
 });
 
 
@@ -64,7 +73,5 @@ Route::get('/loadGrid', function (Request $request) {
   //  } 
         
 });
-
-//Route::resource('__ldajGrida', 'ObslugaGrida');
 
 Route::get('loaddata','ObslugaGrida@dajGrida')->name('obslugagrida');

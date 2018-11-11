@@ -28,6 +28,11 @@ class ObslugaGrida extends Controller
 //               return view('notauthorized');
 //        }
  //   }
+    
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
        
     public function dajGrida(Request $request){
     

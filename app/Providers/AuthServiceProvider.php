@@ -37,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
         //
         
         Gate::define('loggedIn', function ($user){
-           return true;
+           //return true;
             //\App\Jqwidgetshelper::writeDataToFile("sdfsdfg");
             if($user === \Auth::user())
             {
