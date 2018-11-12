@@ -18,6 +18,7 @@ class CreateLinksTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('url');
+            //->unique();
             $table->text('description');
         });
     }

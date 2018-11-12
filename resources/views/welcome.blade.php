@@ -4,8 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
+        
+          <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -82,20 +88,32 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
+                                                                                           
                         <a href="{{ url('/home') }}">Home</a>   
                         <a href="{{ url('/submit') }}">Nowy link</a>
+                        <a href="{{ url('testgrid') }}">Czesio</a>
+                        
+                        <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                        
                     @else                        
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>                                            
+                        <a href="{{ route('login') }}">Login</a>                                                            
                     @endauth
                     
-                    <!--
-                    strona z gridem za pomoca routa zdefiniowanego w pliku web
-                    <a href="{{ url('testgrid') }}">Demo grida</a>
-                    
-                      -->
                       <a href="{{ route('obslugagrida') }}">Demo grida</a>                   
-               {{--action('ObslugaGrida@dajGrida')--}}
                 </div>
             @endif
 
@@ -103,8 +121,11 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+                <div class="title m-b-md">
+                    Jakaś przykładowa treść
+                </div>
 
-<!--                <div class="links">
+            <!--<div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -133,22 +154,3 @@
         </div>
     </body>
 </html>
-
-<?php
-function getConn($db)
-{
-	$uid = "sa";
-	$pwd = "haslo2";
-	//$uid = "test";
-	//$pwd = "test";
-	$connectionInfo = array("UID" => $uid, "PWD" => $pwd, "Database"=>$db);
-	$serverName = "127.0.0.1\mojsql";
-	//$serverName = "uks-v-21-400\sqlexpress";
-	
-	
-	return sqlsrv_connect( $serverName, $connectionInfo);
-}
-//phpinfo();
- //$z = getConn("laravel");
-
-?>

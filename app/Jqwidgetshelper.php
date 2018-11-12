@@ -132,10 +132,11 @@ class Jqwidgetshelper {
     
     
     public static function writeDataToFile($data){
-        $myfile = fopen("testLog.txt", "wb") or die("Unable to open file!");
-        $txt = $data."\n";
-        fwrite($myfile, $txt);
-   
-        fclose($myfile);
+//        $myfile = fopen("testLog.txt", "wb") or die("Unable to open file!");
+//        $txt = $data."\n";
+//        fwrite($myfile, $txt);
+//   
+//        fclose($myfile);
+        file_put_contents("testLog.txt", $data."\n",FILE_APPEND);
     }
 }

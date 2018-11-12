@@ -16,16 +16,23 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     //$links = \App\Link::all();
-    $links = (new \App\Link)->wasl();
-    
-    $colors=array();
-    try{
-    $colors= Auth::user()->colors;
-    } catch (Exception $ex){}
-    
+    //$test = \App\Test::all(); 
+    //$test=['id'=>'a', 'nazwa'=>'b'];   
+    //return view('welcome'    , ['links' => $links, 'tests' => $test ] );
 
-   
-    return view('welcome'    , ['links' => $links],['colors'=>$colors]);
+     
+     if(Auth::guest()){
+        return view('/auth/login');
+     }
+     else{
+		$colors=array();
+		    try{
+		    $colors= Auth::user()->colors;
+		    } catch (Exception $ex){}
+        $links = (new \App\Link)->wasl();
+        return view('welcome'    , ['links' => $links ] ,['colors'=>$colors]);
+     }
+
 });
 
 
