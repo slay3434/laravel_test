@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Czesio') }}
                 </a>
                 
        
@@ -39,10 +39,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('testgrid') }}">Czesio</a>
-                         </li> 
+                    <ul class="navbar-nav ml-auto">             
                         <!-- Authentication Links -->                                                                     
                         @guest
                         {{--

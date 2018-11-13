@@ -47,12 +47,12 @@ class ObslugaGrida extends Controller
  
   // return view('testGrida');
  
-        if (Gate::allows('admin-only')) {
+        //if (Gate::allows('admin-only')) {
         return view('testGrida');
-    }else{
-           //return view('notauthorized');
-           return view('notauthorized');
-    }
+//    }else{
+//           //return view('notauthorized');
+//           return view('notauthorized');
+//    }
     
     }
     

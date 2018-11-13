@@ -25,15 +25,12 @@
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.sort.js') }}" ></script>
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.filter.js') }}" ></script>
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.selection.js') }}" ></script>
+    <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxgrid.columnsresize.js') }}" ></script>
+    
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxdropdownlist.js') }}" ></script>
     <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxlistbox.js') }}" ></script>
-    <script type="text/javascript"  src="{{ asset('js/jqwidgets/jqxdata.js') }}"></script>
-         
-         
-   
-    
-  
-
+    <script  type="text/javascript"  src="{{ asset('js/jqwidgets/jqxdata.js') }}"></script>
+                           
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -50,7 +47,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Czesio') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -100,7 +97,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-12">
             @yield('content')
         </main>
     </div>

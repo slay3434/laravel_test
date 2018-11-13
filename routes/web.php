@@ -62,12 +62,12 @@ Route::post('/submit', function (Request $request) {
 });
 
 Route::get('testgrid', function () {
-   // if (Gate::allows('loggedIn')) {
+    if (Gate::allows('loggedIn')) {
         return view('testGrida');
-//    }else{
-//           //return view('notauthorized');
-//           return view('notauthorized');
-//    }
+    }else{
+           //return view('notauthorized');
+            return view('/auth/login');
+    }
 });
 
 

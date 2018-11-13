@@ -18,16 +18,16 @@
 
         
         <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-<!-- jQuery library -->
+ jQuery library 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
+ Popper JS 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        
+        -->
         
         <!-- Styles -->
         <style>
@@ -77,49 +77,54 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
+            
+         
             .m-b-md {
                 margin-bottom: 30px;
             }
         </style>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body> 
+                                    
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                                                                                            
-                        <a href="{{ url('/home') }}">Home</a>   
-                        <a href="{{ url('/submit') }}">Nowy link</a>
-                        <a href="{{ url('testgrid') }}">Czesio</a>
+                        {{--<a href="{{ url('/home') }}">Home</a>   --}}
+                        <a href="{{ url('/submit') }}">Nowy link</a>                 
                         
-                        <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
+                        
                         
                     @else                        
                         <a href="{{ route('login') }}">Login</a>                                                            
                     @endauth
                     
-                      <a href="{{ route('obslugagrida') }}">Demo grida</a>                   
+                    <a href="{{ route('obslugagrida') }}">Sprzęt</a>     
+
+                    <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
                 </div>
+           
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel framework
                 </div>
                 <div class="title m-b-md">
                     Jakaś przykładowa treść
@@ -142,8 +147,6 @@
                
             </div>
 
-
-<label>kolory</label>
             <div class="row">
                    @foreach ($colors as $color)                
                    <div class="col" style="background-color: {{$color->name}}"><label>"{{ $color->id }}" - {{ $color->name}}</label></div>
