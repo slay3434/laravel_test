@@ -60,9 +60,9 @@ class LoginController extends Controller
             
             $user = User::where("name",request('login'))->first();
             if($user===null){
-                \App\Jqwidgetshelper::writeDataToFile($user);
+                //\App\Jqwidgetshelper::writeDataToFile($user);
                 $user = new User(["name"=>request('login')]);
-                \App\Jqwidgetshelper::writeDataToFile($user);
+                //\App\Jqwidgetshelper::writeDataToFile($user);
                 $user->save();
                 $user = User::where("name",request('login'))->first();
             }

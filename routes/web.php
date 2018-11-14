@@ -13,7 +13,7 @@
 
 use Illuminate\Http\Request;
 
-
+//widok pierwszej strony po zalogowaniu 
 Route::get('/', function () {
     //$links = \App\Link::all();
     //$test = \App\Test::all(); 
@@ -39,8 +39,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//widok home(status zalogowania), przyklad użycia tzw namedroute czyli uproszczonej formy routingu
 Route::get('/home', 'HomeController@index')->name('home');
 
+//widok dodawania nowego linku na pierwszej stronie
 Route::get('/submit', function () {
     if (Gate::allows('loggedIn')) {
         return view('submit');
@@ -49,6 +51,7 @@ Route::get('/submit', function () {
     }
 });
 
+//obsluga formularza dodawania nowego linku
 Route::post('/submit', function (Request $request) {
     $data = $request->validate([
         'title' => 'required|max:255',
@@ -61,24 +64,24 @@ Route::post('/submit', function (Request $request) {
     return redirect('/');
 });
 
-Route::get('testgrid', function () {
+
+///*************** widok sprzetu
+//zaladowanie danych do grida z modelu Sprzet
+Route::get('/getSprzetData', function (Request $request) {
+    
+    //przyklad uproszczonego użycia mechanizmu gates do autoryzacji dostepu, gate jest zdefiniowany w /app/providers/AuthServiceProvider
+    //gate można użyć w kontrolerze 
     if (Gate::allows('loggedIn')) {
-        return view('testGrida');
+        return  \App\Sprzet::loadMainGridData($request);
     }else{
-           //return view('notauthorized');
-            return view('/auth/login');
-    }
-});
-
-
-Route::get('/loadGrid', function (Request $request) {
-    //if (Gate::allows('admin-only')) {
-    return  \App\Link::gridData($request);
-  //  }
-   // else{
-  //      return null;
-  //  } 
+    //      return view('notauthorized'); 
+        return view('/auth/login');
+    } 
         
 });
+//zaladowanie widoku z gridem z kontrolera SprzetController
+Route::get('getSprzet','SprzetController@getViewSprzet')->name('getSprzet');
 
-Route::get('loaddata','ObslugaGrida@dajGrida')->name('obslugagrida');
+
+
+//***************** sprzet koniec

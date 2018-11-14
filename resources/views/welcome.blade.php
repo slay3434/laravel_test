@@ -12,22 +12,23 @@
         
           <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-        
-        <!-- Latest compiled and minified CSS -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+           
+         <!--Latest compiled and minified CSS--> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
- jQuery library 
+ <!--jQuery library--> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
- Popper JS 
+ <!--Popper JS--> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        -->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>-->
+        
         
         <!-- Styles -->
         <style>
@@ -83,7 +84,7 @@
                 margin-bottom: 30px;
             }
         </style>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+     
     </head>
     <body> 
                                     
@@ -92,7 +93,7 @@
                 <div class="top-right links">
                     @auth
                                                                                            
-                        {{--<a href="{{ url('/home') }}">Home</a>   --}}
+                        <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ url('/submit') }}">Nowy link</a>                 
                         
                         
@@ -100,8 +101,9 @@
                     @else                        
                         <a href="{{ route('login') }}">Login</a>                                                            
                     @endauth
+                           
+                    <a href="{{ route('getSprzet') }}">Sprzęt</a>  
                     
-                    <a href="{{ route('obslugagrida') }}">Sprzęt</a>     
 
                     <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>

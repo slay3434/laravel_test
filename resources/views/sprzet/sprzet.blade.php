@@ -1,16 +1,5 @@
 @extends('layouts.appjqwidgets')
 
-@section('head_script')
-<style>
-    .container-fluid{
-        position: absolute;
-        width:1600px !important;
-    }
-</style>
-@endsection
-
-
-
 @section('content')
 
 <script type='text/javascript'>
@@ -43,7 +32,7 @@
                 { name: 'stat_przek' },
             
             ],
-            url: '{{ url("/loadGrid") }}',
+            url: '{{ url("/getSprzetData") }}',
             root: 'Rows',
             beforeprocessing: function (data) {
                 source.totalrecords = data[0].TotalRows;

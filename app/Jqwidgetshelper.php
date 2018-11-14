@@ -139,4 +139,12 @@ class Jqwidgetshelper {
 //        fclose($myfile);
         file_put_contents("testLog.txt", $data."\n",FILE_APPEND);
     }
+    
+    public function writeToConsole( $data ) {
+        $output = $data;
+        if ( is_array( $output ) )
+            $output = implode( ',', $output);
+
+        echo("<script>console.log('PHP: ".$output."');</script>");
+    }
 }
