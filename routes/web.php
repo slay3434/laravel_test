@@ -85,3 +85,15 @@ Route::get('getSprzet','SprzetController@getViewSprzet')->name('getSprzet');
 
 
 //***************** sprzet koniec
+
+
+//**************** oprogramowanie
+
+//zaladowanie widoku z gridem z kontrolera SprzetController
+Route::get('getOprogramowanie','OprogramowanieController@getOprogramowanieView')->name('getOprogramowanie');
+
+Route::get('getOprogramowanieData','OprogramowanieController@getOprogramowanieData')->name('getOprogramowanieData');
+
+
+
+//**************** oprogramowanie koniec

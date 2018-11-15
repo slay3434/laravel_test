@@ -9,30 +9,27 @@
         var source ={
             datatype: "json",
  			//datafields: [{ name: 'id' },{ name: 'url' },{ name: 'description', type: 'string' }],
-            datafields: [{ name: 'id' },
-                { name: 'nazwa' },
-                { name: 'lok_us', type: 'string' },
-                
-                { name: 'id' },
-                { name: 'nr_inw' },
-                { name: 'opis' },
-                { name: 'data_lik' },
-                { name: 'nazwadns' },
-                { name: 'adr_ip,' },
-                { name: 'zestaw' },
-                { name: 'num_fabr' },
-                { name: 'id_gr' },
-                { name: 'inwold' },
-                { name: 'status' },
-                { name: 'nr_pom' },
-                { name: 'nr_etyk' },
-                { name: 'notatka',type: 'string' },
-                { name: 'data_zak' },
-                { name: 'lok_out' },
-                { name: 'stat_przek' },
-            
+            datafields: [
+                {name: 'id'},
+                {name: 'nr_inw'},
+                {name: 'lok_us'},
+                {name: 'nazwa'},
+                {name: 'opis'},
+                {name: 'data_lik'},
+                {name: 'nazwadns'},
+                {name: 'adr_ip'},
+                {name: 'zestaw'},
+                {name: 'id_gr'},
+                {name: 'num_fabr'},
+                {name: 'inwold'},
+                {name: 'status'},
+                {name: 'notatka'},
+                {name: 'data_zak'},
+                {name: 'lokalizacja'},
+                {name: 'lok_out'},
+                {name: 'stat_przek'},            
             ],
-            url: '{{ url("/getSprzetData") }}',
+            url: '{{ url("/getOprogramowanieData") }}',
             root: 'Rows',
             beforeprocessing: function (data) {
                 source.totalrecords = data[0].TotalRows;
@@ -68,34 +65,34 @@
             rendergridrows: function (params) {
                 return params.data;
             },
-            //columns: [{ text: 'ID', datafield: 'id', width: 250 },{ text: 'Adres url', datafield: 'url', width: 250 },{ text: 'Opis', datafield: 'description' }]
-            //select s.id, s.nr_inw, s.lok_us, s.nazwa, s.opis, s.data_lik, s.nazwadns, s.adr_ip,
-            // s.zestaw, s.num_fabr, s.id_gr, s.inwold, s.status, s.nr_pom, s.nr_etyk, s.notatka,
-            //  s.data_zak, s.lok_out, s.stat_przek
+    
             columns: [ 
-                //{ text: 'ID', datafield: 'id', width: 250 },               
-                {text:'US', datafield:'lok_us' },
-                {text:'Lokalizacja', datafield:'lok_out'},
-                {text:'Nr inw', datafield:'nr_inw'},
-                {text:'Nr ser', datafield:'num_fabr'},
-                {text:'Nazwa DNS', datafield:'nazwadns'},
-                {text:'adr IP', datafield:'adr_ip,'},
-                {text:'Nazwa', datafield:'nazwa', width:200},
-                {text:'Pokój', datafield:'nr_pom'},
-                {text:'Data zakupu', datafield:'data_zak'},
+                //{text:'id', datafield:'id'},
+                {text:'US', datafield:'lok_us'},
+                {text:'Lokalizacja', datafield:'lokalizacja'},
+                {text:'Nr inw', datafield:'nr_inw'}, 
+                {text:'Klucz', datafield:'num_fabr'},
+                {text:'Nazwa', datafield:'nazwa'},
                 
-                {text:'Notatka', datafield:'notatka'},
-               
+                {text:'Data zakupu', datafield:'data_zak'},
+                {text:'notatka', datafield:'notatka'},
+                
 //                {text:'opis', datafield:'opis'},
-//                {text:'data_lik', datafield:'data_lik'},                                
+//                {text:'data_lik', datafield:'data_lik'},
+//                {text:'nazwadns', datafield:'nazwadns'},
+//                {text:'adr_ip', datafield:'adr_ip'},
 //                {text:'zestaw', datafield:'zestaw'},
-//                
 //                {text:'id_gr', datafield:'id_gr'},
+//               
 //                {text:'inwold', datafield:'inwold'},
-//                {text:'status', datafield:'status'},                
-//                {text:'nr_etyk', datafield:'nr_etyk'},
+//                {text:'status', datafield:'status'},
+//              
+//                
+//                
+//                {text:'lok_out', datafield:'lok_out'},
 //                {text:'stat_przek', datafield:'stat_przek'},
 
+         
             ]
         });
         

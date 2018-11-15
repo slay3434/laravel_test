@@ -39,13 +39,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
-      <link rel="stylesheet" href="{{ asset('css/jqwidgets/styles/jqx.base.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/jqwidgets/styles/jqx.base.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/jqwidgets/styles/jqx.classic.css') }}" rel="stylesheet"/>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Czesio') }}
                 </a>
@@ -74,6 +74,12 @@
                             </li>
                             --}}
                         @else
+                            <li class="nav-item {{ Request::path()=='getSprzet' ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('getSprzet') }}" >Sprzęt</a>
+                            </li>
+                             <li class="nav-item {{ Request::path()=='getOprogramowanie' ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('getOprogramowanie') }}">Oprogramowanie</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

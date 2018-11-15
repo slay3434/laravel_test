@@ -73,7 +73,7 @@ class Link extends Model
         
         $query = 'select id, created_at, updated_at, title, url, description from ('
                 . 'select * from'
-                . '(select *, row_number() over(order by '.$sortfield.' '.$sortorder.') as row from links '.$condition.')  '
+                . '(select *, row_number() over(order by '.$sortfield.' '.$sortorder.'  nulls last) as row from links '.$condition.')  '
                 . 'as q1 where row between '.$start.' and '.$stop.') as q2';
                 
      

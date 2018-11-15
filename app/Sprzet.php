@@ -24,7 +24,7 @@ class Sprzet extends Model
      public static function loadMainGridData(Request $request){
           
         
-        $condition = " where 1=1 ".\App\Jqwidgetshelper::prepareCondition($request);
+        $condition = " where 1=1 and kategoria<100 ".\App\Jqwidgetshelper::prepareCondition($request);
         
         $sortfield = 'id';
         $sortorder = 'asc';
@@ -41,7 +41,7 @@ class Sprzet extends Model
         
         $query = 'select s.id, s.nr_inw, s.lok_us, s.nazwa as nazwa, s.opis, s.data_lik, s.nazwadns, s.adr_ip, s.zestaw, s.num_fabr, s.id_gr, s.inwold, s.status, s.nr_pom, s.nr_etyk, s.notatka, s.data_zak, s.lok_out, s.stat_przek from ('
                 . 'select * from'
-                . '(select *, row_number() over(order by '.$sortfield.' '.$sortorder.') as row from sprzet  '.$condition.')  '
+                . '(select *, row_number() over(order by '.$sortfield.' '.$sortorder.' nulls last) as row from sprzet  '.$condition.')  '
                 . 'as q1 where row between '.$start.' and '.$stop.') as s';
                 
      

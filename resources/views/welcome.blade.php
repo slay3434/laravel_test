@@ -104,6 +104,8 @@
                            
                     <a href="{{ route('getSprzet') }}">Sprzęt</a>  
                     
+                    <a href="{{ route('getOprogramowanie') }}">Oprogramowanie</a>  
+                    
 
                     <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
