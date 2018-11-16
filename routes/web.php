@@ -97,3 +97,10 @@ Route::get('getOprogramowanieData','OprogramowanieController@getOprogramowanieDa
 
 
 //**************** oprogramowanie koniec
+
+
+Route::get("/menu", function(){
+    $menu = \App\Menu::find(10)->get();
+    
+    return view('menu',['menu'=>$menu]);
+});

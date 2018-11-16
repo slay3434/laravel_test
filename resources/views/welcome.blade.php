@@ -94,7 +94,8 @@
                     @auth
                                                                                            
                         <a href="{{ url('/home') }}">Home</a>
-                        <a href="{{ url('/submit') }}">Nowy link</a>                 
+                        <a href="{{ url('/submit') }}">Nowy link</a>     
+                        <a href="{{ url('/menu') }}">Menu items</a>  
                         
                         
                         
